@@ -37,9 +37,6 @@ public class LoginController extends AbstractController {
         }
         try {
             Subject subject = ShiroUtils.getSubject();
-            //sha256加密
-            //password = new Sha256Hash(password).toHex();
-            //Md5Hash md5Hash = new Md5Hash(password, Constants.PASSWORD_SALT, Constants.PASSWORD_HASH_ITERATIONS);
             password = Md5Utils.getMd5String(password);
             UsernamePasswordToken token = new UsernamePasswordToken(account, password);
             subject.login(token);
