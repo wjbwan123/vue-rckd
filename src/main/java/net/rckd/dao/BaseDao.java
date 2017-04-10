@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * @author hanyi
+ * @author hanyia
  * @date 2017年04月08日
  */
 public interface BaseDao<T> {
