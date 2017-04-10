@@ -3,9 +3,16 @@
 
 <mapper namespace="net.rckd.dao.UserDao">
 
+    <sql id="Base_Column_List">
+        `id`, `account`, `password`, `last_login_time`, `credit_score`,
+        `region_code`, `system_integral`, `member_integral`, `status`
+    </sql>
+
     <select id="queryByAccount" resultType="net.rckd.entity.User">
-		select * from `user` where `account` = #{account}
-	</select>
+        select
+        <include refid="Base_Column_List"/>
+        from `user` where `account` = #{account}
+    </select>
 
     <insert id="save" parameterType="net.rckd.entity.User" useGeneratedKeys="true" keyProperty="id">
         insert into `user`
