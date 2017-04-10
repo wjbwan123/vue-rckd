@@ -4,8 +4,72 @@
 <mapper namespace="net.rckd.dao.UserDao">
 
     <select id="queryByAccount" resultType="net.rckd.entity.User">
-		select * from `user` where `account` = #{account1}
+		select * from `user` where `account` = #{account}
 	</select>
 
+    <insert id="save" parameterType="net.rckd.entity.User" useGeneratedKeys="true" keyProperty="id">
+        insert into `user`
+        (
+        `id`,
+        <if test="account">
+            `account`,
+        </if>
+        <if test="password">
+            `password`,
+        </if>
+        <if test="createTime">
+            `create_time`,
+        </if>
+        <if test="lastLoginTime">
+            `last_login_time`,
+        </if>
+        <if test="creditScore">
+            `credit_score`,
+        </if>
+        <if test="regionCode">
+            `region_code`,
+        </if>
+        <if test="systemIntegral">
+            `system_integral`,
+        </if>
+        <if test="memberIntegral">
+            `member_integral`,
+        </if>
+        <if test="status">
+            `status`
+        </if>
+        )
+        values
+        (
+        #{id},
+        <if test="account">
+            #{account},
+        </if>
+        <if test="password">
+            #{password},
+        </if>
+        <if test="createTime">
+            #{createTime},
+        </if>
+        <if test="lastLoginTime">
+            #{lastLoginTime},
+        </if>
+        <if test="creditScore">
+            #{creditScore},
+        </if>
+        <if test="regionCode">
+            #{regionCode},
+        </if>
+        <if test="systemIntegral">
+            #{systemIntegral},
+        </if>
+        <if test="memberIntegral">
+            #{memberIntegral},
+        </if>
+        <if test="status">
+            #{status},
+        </if>
+        )
+    </insert>
 
 </mapper>

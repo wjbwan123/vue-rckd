@@ -13,9 +13,9 @@ public class Constants {
      */
     public static final String LOGIN_FILTER_PACKAGE = "u";
     /**
-     * 注册用户赠送的积分
+     * 注册赠送积分
      */
-    public static final int SYSTEM_INTEGRAL = 14;
+    public static final int REGISTER_INTEGRAL = 14;
     /**
      * 手机号正则
      */

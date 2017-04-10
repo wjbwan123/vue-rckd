@@ -31,7 +31,11 @@ public class UserController extends AbstractController{
      */
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public R save(User user){
-
+        String message = getVerifyMessage(user);
+        if (!message.equals(Constants.SUCCESS)){
+            return R.error(message);
+        }
+        userService.save(user);
         return R.ok();
     }
 
