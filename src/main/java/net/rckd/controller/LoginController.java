@@ -33,7 +33,7 @@ public class LoginController extends AbstractController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public R login(String account, String password) {
         if (StringUtils.isBlank(account) || StringUtils.isBlank(password)) {
-            return R.error("帐号密码不能为空sf");
+            return R.error("帐号密码不能为空");
         }
         try {
             Subject subject = ShiroUtils.getSubject();
@@ -64,8 +64,8 @@ public class LoginController extends AbstractController {
     /**
      * 判断是否登陆
      */
-    @RequestMapping(value = "checkLogin", method = RequestMethod.POST)
-    public R checkLogin() {
+    @RequestMapping(value = "isLogin", method = RequestMethod.POST)
+    public R isLogin() {
         if (ShiroUtils.isLogin()) {
             return R.ok();
         } else {
