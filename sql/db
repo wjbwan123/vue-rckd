@@ -1,0 +1,16 @@
+-- 用户表（select sum(system_integral + member_integral) as total_integral  from `user` WHERE id = 1183）
+-- consumeIntegral(消费积分)
+CREATE TABLE `user` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `account` VARCHAR(16) NOT NULL COMMENT '帐号',
+  `password` VARCHAR(40) NOT NULL COMMENT '密码',
+  `create_time` TIMESTAMP NOT NULL DEFAULT 0 COMMENT '创建时间',
+  `last_login_time` TIMESTAMP NOT NULL DEFAULT 0 COMMENT '最近登录时间',
+  `credit_score` TINYINT NOT NULL DEFAULT 20 COMMENT '信誉分',
+  `region_code` MEDIUMINT NOT NULL DEFAULT 0 COMMENT '地区表主键',
+  `system_integral` SMALLINT NOT NULL DEFAULT 0 COMMENT '系统积分',
+  `member_integral` SMALLINT NOT NULL DEFAULT 0 COMMENT '会员积分',
+  `status` TINYINT NOT NULL DEFAULT 1 COMMENT '状态1：停用，2：正常',
+  PRIMARY KEY (`id`),
+  KEY idx_last_login(`last_login_time`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT '用户表';
