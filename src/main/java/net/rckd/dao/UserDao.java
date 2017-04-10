@@ -1,6 +1,7 @@
 package net.rckd.dao;
 
 import net.rckd.entity.User;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * 注册用户管理
@@ -8,4 +9,5 @@ import net.rckd.entity.User;
  * @date 2017年04月08日
  */
 public interface UserDao extends BaseDao<User>{
+     public User queryByAccount(@Param("account") String account);
 }

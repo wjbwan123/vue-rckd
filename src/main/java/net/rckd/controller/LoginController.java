@@ -40,7 +40,7 @@ public class LoginController extends AbstractController {
             //sha256加密
             //password = new Sha256Hash(password).toHex();
             //Md5Hash md5Hash = new Md5Hash(password, Constants.PASSWORD_SALT, Constants.PASSWORD_HASH_ITERATIONS);
-            password = Md5Utils.getMd5Password(password);
+            password = Md5Utils.getMd5String(password);
             UsernamePasswordToken token = new UsernamePasswordToken(account, password);
             subject.login(token);
         } catch (UnknownAccountException e) {
