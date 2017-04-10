@@ -5,6 +5,7 @@ import com.google.gson.Gson;
 import net.rckd.entity.Region;
 import net.rckd.utils.Constants;
 import net.rckd.utils.CookieUtils;
+import net.rckd.utils.ShiroUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -23,7 +24,7 @@ import java.util.Map;
 public class DefaultInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
-        Region region = null;
+        Region region = (Region) ShiroUtils.getSessionAttribute(Constants.AREA_SESSION_KEY);
         // 获取域名
         String serverName = request.getServerName();
         if (isSecondLevelDomain(serverName)) {
