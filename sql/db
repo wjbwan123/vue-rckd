@@ -1,5 +1,5 @@
 -- 用户表（select sum(system_integral + member_integral) as total_integral  from `user` WHERE id = 1183）
--- consumeIntegral(消费积分)
+-- consumeIntegral(消费积分爱爱爱)
 CREATE TABLE `user` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `account` VARCHAR(16) NOT NULL COMMENT '帐号',
