@@ -3,6 +3,7 @@ package net.rckd.utils;
 import org.apache.shiro.crypto.hash.Md5Hash;
 
 /**
+ * md5工具类
  * @author hanyi
  * @date 2017-03-23 20:59
  */

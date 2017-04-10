@@ -6,6 +6,7 @@ import net.rckd.service.UserService;
 import net.rckd.utils.Constants;
 import net.rckd.utils.R;
 import net.rckd.utils.ShiroUtils;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,6 +31,7 @@ public class UserController extends AbstractController{
      */
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     public R save(User user){
+
         return R.ok();
     }
 
@@ -38,7 +40,28 @@ public class UserController extends AbstractController{
      */
     @RequestMapping(value = "/update", method = RequestMethod.POST)
     public R update(User user){
+        String message = getVerifyMessage(user);
+        if (!message.equals(Constants.SUCCESS)){
+            return R.error(message);
+        }
+        userService.update(user);
         return R.ok();
+    }
+
+    /**
+     *获得验证信息
+     */
+    private String getVerifyMessage(User user){
+        if (user == null){
+            return "用户不能为空";
+        }
+        if (StringUtils.isBlank(user.getAccount())){
+            return "账号不能为空";
+        }
+        if (StringUtils.isBlank(user.getPassword())){
+            return "密码不能为空";
+        }
+        return Constants.SUCCESS;
     }
 
 
