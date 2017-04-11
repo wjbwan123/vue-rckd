@@ -1,4 +1,8 @@
 /** 通用css **/
+.mint-header {
+    background-color: black;
+}
+
 [v-cloak] {
     display: none !important;
 }

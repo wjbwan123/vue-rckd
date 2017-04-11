@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>个人中心</title>
+    <title>我的</title>
+    #parse("common/header.html")
 </head>
 <body>
-<h1>个人中心</h1>
+<div id="app">
+    <!-- 头部 -->
+    <app-header title="我的" :show-left="showLeft"></app-header>
+
+    <div class="container">
+        我的
+    </div>
+
+    <!-- 底部tabbar -->
+    <app-footer id="tab4"></app-footer>
+</div>
 </body>
+#parse("common/footer.html")
+<script src="${rc.contextPath}/js/self.js"></script>
 </html>

@@ -24,6 +24,30 @@ import java.util.Map;
 public class DefaultInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
+        return true;
+    }
+
+    @Override
+    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object o, ModelAndView modelAndView) throws Exception {
+        //System.out.println("postHandle");
+        //todo
+    }
+
+    @Override
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object o, Exception e) throws Exception {
+        //System.out.println("postHandle");
+        //todo
+    }
+
+    //是否是二级域名
+    private boolean isSecondLevelDomain(String serverName) {
+        boolean result = StringUtils.isNotBlank(serverName)
+                && !serverName.equals("www") && !serverName.equals("localhost")
+                && !serverName.equals("127.0.0.1");
+        return result;
+    }
+
+    private boolean TODO (HttpServletRequest request, HttpServletResponse response, Object o) {
         Region region = (Region) ShiroUtils.getSessionAttribute(Constants.AREA_SESSION_KEY);
         // 获取域名
         String serverName = request.getServerName();
@@ -55,23 +79,5 @@ public class DefaultInterceptor implements HandlerInterceptor {
             //todo
         }
         return true;
-    }
-
-    @Override
-    public void postHandle(HttpServletRequest request, HttpServletResponse response, Object o, ModelAndView modelAndView) throws Exception {
-        System.out.println("postHandle");
-    }
-
-    @Override
-    public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object o, Exception e) throws Exception {
-        System.out.println("afterCompletion");
-    }
-
-    //是否是二级域名
-    private boolean isSecondLevelDomain(String serverName) {
-        boolean result = StringUtils.isNotBlank(serverName)
-                && !serverName.equals("www") && !serverName.equals("localhost")
-                && !serverName.equals("127.0.0.1");
-        return result;
     }
 }

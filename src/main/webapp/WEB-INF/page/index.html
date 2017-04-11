@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>首页</title>
+    <title>人才快递</title>
+    #parse("common/header.html")
 </head>
 <body>
-<h1>首页</h1>
+<div id="app">
+    <!-- 头部 -->
+    <app-header title="人才快递" :show-left="showLeft"></app-header>
+
+    <div class="container">
+        人才快递
+    </div>
+
+    <!-- 底部tabbar -->
+    <app-footer id="tab1"></app-footer>
+</div>
 </body>
+#parse("common/footer.html")
+<script src="${rc.contextPath}/js/index.js"></script>
 </html>

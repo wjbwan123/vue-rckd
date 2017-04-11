@@ -30,4 +30,6 @@ public class Constants {
      */
     public static final String AREA_COOKIE_KEY = "AREA_COOKIE_KEY";
     public static final String WEB_USER = "WEB_USER";
+    //本地ip
+    public static final String LOCAL_IP = "127.0.0.1";
 }

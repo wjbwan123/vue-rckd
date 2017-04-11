@@ -42,7 +42,7 @@ var components = {
                 var url = '';
                 switch (tabId) {
                     case 'tab1':
-                        url = "/vue-rckd/index.html";
+                        url = "/";
                         break;
                     case 'tab2':
                         alert("哈哈tab2");
@@ -51,7 +51,7 @@ var components = {
                         alert("哈哈tab3");
                         break;
                     case 'tab4':
-                        url = "/vue-rckd/pages/self.html";
+                        url = "/u/self.html";
                         break;
                 }
                 location.href = url;
@@ -64,7 +64,7 @@ var components = {
     //登陆模块
     login: {
         props: ['visible'],
-        template: '<div style="z-index: 9999" v-show="visible">' +
+        template: '<div style="z-index: 9999">' +
         '<mt-field label="手机号码" placeholder="输入手机号码"></mt-field>' +
         '<mt-field label="账号密码" placeholder="输入密码" type="password"></mt-field>' +
         '</div>'

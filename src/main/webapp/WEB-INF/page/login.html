@@ -1,10 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>登陆</title>
+    #parse("common/header.html")
+    <style>
+        .page-part {
+            margin: 60px 0 20px 0;
+        }
+    </style>
 </head>
 <body>
-<h1>登陆</h1>
+<div id="app">
+    <app-header title="登陆" :show-left="showLeft"></app-header>
+    <div class="page-part">
+        <mt-field v-model="user.account" placeholder="输入手机号码"></mt-field>
+        <mt-field v-model="user.password" placeholder="输入密码" type="password"></mt-field>
+    </div>
+    <mt-button type="primary" size="large">登陆</mt-button>
+</div>
+</div>
 </body>
+#parse("common/footer.html")
+<script src="${rc.contextPath}/js/login.js?11"></script>
 </html>
