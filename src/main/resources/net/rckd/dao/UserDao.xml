@@ -4,7 +4,7 @@
 <mapper namespace="net.rckd.dao.UserDao">
 
     <select id="queryByAccount" resultType="net.rckd.entity.User">
-        select * from user where `account` = #{account}
+        select * from `user` where `account` = #{account}
     </select>
 
 
