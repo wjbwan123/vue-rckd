@@ -1,8 +1,4 @@
 /** 通用css **/
-.mint-header {
-    background-color: black;
-}
-
 [v-cloak] {
     display: none !important;
 }
@@ -13,5 +9,15 @@ a {
 
 .container {
     margin-top: 40px;
+}
+
+/** 控制底部tabbar的高度 **/
+.mint-tab-item-label {
+    line-height: 3;
+}
+
+/** 头部header的颜色 **/
+.mint-header {
+    background-color: #00b38a;
 }
 

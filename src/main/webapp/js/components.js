@@ -8,7 +8,6 @@ var components = {
         props: ['title', 'showLeft'],
         template: '<mt-header fixed :title="title">' +
         '<mt-button icon="back" slot="left" v-if="showLeft">返回</mt-button>' +
-        '<mt-button icon="more" slot="right"></mt-button>' +
         '</mt-header>'
     },
     //底部的tabbar
@@ -16,9 +15,8 @@ var components = {
         props: ['id'],
         template: '<mt-tabbar v-model="selected">' +
         '<mt-tab-item id="tab1">首页</mt-tab-item>' +
-        '<mt-tab-item id="tab2">tab2</mt-tab-item>' +
-        '<mt-tab-item id="tab3">tab3</mt-tab-item>' +
-        '<mt-tab-item id="tab4">我的</mt-tab-item>' +
+        '<mt-tab-item id="tab2">消息</mt-tab-item>' +
+        '<mt-tab-item id="tab3">我的</mt-tab-item>' +
         '</mt-tabbar>',
         data: function () {
             return {
@@ -45,13 +43,10 @@ var components = {
                         url = "/";
                         break;
                     case 'tab2':
-                        alert("哈哈tab2");
+                        url = "/u/message.html";
                         break;
                     case 'tab3':
-                        alert("哈哈tab3");
-                        break;
-                    case 'tab4':
-                        url = "/u/self.html";
+                        url = "/u/mine.html";
                         break;
                 }
                 location.href = url;

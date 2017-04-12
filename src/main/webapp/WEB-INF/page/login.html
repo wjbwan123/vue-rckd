@@ -13,10 +13,11 @@
 <div id="app">
     <app-header title="登陆" :show-left="showLeft"></app-header>
     <div class="page-part">
-        <mt-field v-model="user.account" placeholder="输入手机号码"></mt-field>
-        <mt-field v-model="user.password" placeholder="输入密码" type="password"></mt-field>
+        <mt-field v-model="user.account" placeholder="手机号（账号）"></mt-field>
+        <mt-field v-model="user.password" placeholder="密码" type="password"></mt-field>
     </div>
-    <mt-button type="primary" size="large">登陆</mt-button>
+    <mt-button type="primary" size="large" @click.native="login">登陆</mt-button>
+    {{user.account}}
 </div>
 </div>
 </body>
