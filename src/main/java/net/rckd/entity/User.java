@@ -3,7 +3,7 @@ package net.rckd.entity;
 import java.util.Date;
 
 /**
- * 注册用户
+ * 注册用户实体类
  *
  * @author hanyi
  * @date 2017年04月08日

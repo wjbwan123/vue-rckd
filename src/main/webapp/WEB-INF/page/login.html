@@ -17,10 +17,9 @@
         <mt-field v-model="user.password" placeholder="密码" type="password"></mt-field>
     </div>
     <mt-button type="primary" size="large" @click.native="login">登陆</mt-button>
-    {{user.account}}
 </div>
 </div>
 </body>
 #parse("common/footer.html")
-<script src="${rc.contextPath}/js/login.js?11"></script>
+<script src="${rc.contextPath}/js/login.js?_${date.systemTime}"></script>
 </html>

@@ -22,15 +22,14 @@ public class PageController extends AbstractController {
      */
     @RequestMapping("/")
     public String index() {
-        System.out.println("index");
         return "index.html";
     }
+
     /**
      * 公共视图
      */
     @RequestMapping("{module}/{url}.html")
     public String commonPage(@PathVariable("module") String module, @PathVariable("url") String url) {
-        System.out.println("commonPage");
         if (StringUtils.isBlank(module) || StringUtils.isBlank(url)) {
             return "error/404.html";
         }

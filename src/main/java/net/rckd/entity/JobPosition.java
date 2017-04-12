@@ -1,7 +1,7 @@
 package net.rckd.entity;
 
 /**
- * 职位分类
+ * 职位分类实体类
  * @author hanyi
  * @date 2017年04月10日
  */

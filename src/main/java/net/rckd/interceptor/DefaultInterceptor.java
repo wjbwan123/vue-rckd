@@ -47,7 +47,7 @@ public class DefaultInterceptor implements HandlerInterceptor {
         return result;
     }
 
-    private boolean TODO (HttpServletRequest request, HttpServletResponse response, Object o) {
+    private boolean TODO(HttpServletRequest request, HttpServletResponse response, Object o) {
         Region region = (Region) ShiroUtils.getSessionAttribute(Constants.AREA_SESSION_KEY);
         // 获取域名
         String serverName = request.getServerName();

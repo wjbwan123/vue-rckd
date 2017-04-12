@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>我的</title>
+    <title>个人信息</title>
     #parse("common/header.html")
     <style>
         body {
@@ -12,12 +12,11 @@
 <body>
 <div id="app">
     <!-- 头部 -->
-    <app-header title="我的" :show-left="showLeft"></app-header>
+    <app-header title="个人信息" :show-left="showLeft"></app-header>
 
     <div class="container" style="margin-top: 60px;">
         <mt-cell title="个人信息" is-link></mt-cell>
         <mt-cell title="公司信息" is-link></mt-cell>
-        <mt-cell title="名企管理" is-link></mt-cell>
         <mt-cell title="求职帖管理" is-link></mt-cell>
         <mt-cell title="招聘帖管理" is-link></mt-cell>
     </div>
@@ -30,5 +29,5 @@
 </div>
 </body>
 #parse("common/footer.html")
-<script src="${rc.contextPath}/js/mine.js?_${date.systemTime}"></script>
+<script src="${rc.contextPath}/js/person.js?_${date.systemTime}"></script>
 </html>

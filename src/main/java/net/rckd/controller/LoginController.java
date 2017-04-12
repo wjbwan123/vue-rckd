@@ -1,16 +1,11 @@
 package net.rckd.controller;
 
-import net.rckd.entity.User;
-import net.rckd.service.UserService;
-import net.rckd.utils.Constants;
 import net.rckd.utils.Md5Utils;
 import net.rckd.utils.R;
 import net.rckd.utils.ShiroUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.authc.*;
-import org.apache.shiro.crypto.hash.Md5Hash;
 import org.apache.shiro.subject.Subject;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,9 +19,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("u")
 public class LoginController extends AbstractController {
-    @Autowired
-    private UserService userService;
-
     /**
      * 登陆
      */

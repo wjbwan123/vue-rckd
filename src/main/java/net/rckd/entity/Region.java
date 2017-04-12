@@ -3,7 +3,7 @@ package net.rckd.entity;
 import java.util.List;
 
 /**
- * 地区管理
+ * 地区实体类
  *
  * @author hanyi
  * @date 2017-03-23 20:59

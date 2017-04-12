@@ -17,8 +17,7 @@ new Vue({
                 this.$toast('账号或密码不能为空');
             }
             var _this = this;
-            var url = '/u/login';
-            common.post(_this, url, _this.user, function (data) {
+            common.post(_this, '/u/login', _this.user, function (data) {
                 if (data.code === 0) {
                     location.reload();
                 } else {
