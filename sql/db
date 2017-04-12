@@ -10,7 +10,24 @@ CREATE TABLE `user` (
   `region_code` MEDIUMINT NOT NULL DEFAULT 0 COMMENT '地区表主键',
   `system_integral` SMALLINT NOT NULL DEFAULT 0 COMMENT '系统积分',
   `member_integral` SMALLINT NOT NULL DEFAULT 0 COMMENT '会员积分',
-  `status` TINYINT NOT NULL DEFAULT 1 COMMENT '状态1：停用，2：正常',
+  `status` TINYINT NOT NULL DEFAULT 2 COMMENT '状态1：停用，2：正常',
   PRIMARY KEY (`id`),
   KEY idx_last_login(`last_login_time`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT '用户表';
+
+
+CREATE TABLE `person` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `user_id` INT NOT NULL COMMENT '用户id',
+  `name` VARCHAR(10) NOT NULL COMMENT '姓名',
+  `sex` TINYINT NOT NULL COMMENT '性别1：男，2：女',
+  `birth_year` SMALLINT NOT NULL COMMENT '出生年份',
+  `education` VARCHAR(20) NOT NULL COMMENT '学历',
+  `experience` VARCHAR(20) NOT NULL COMMENT '工作经验',
+  `picture_url` VARCHAR(50) NOT NULL DEFAULT '' COMMENT '上传图片地址',
+  `create_time` TIMESTAMP NOT NULL DEFAULT 0 COMMENT '创建时间',
+  `update_time` TIMESTAMP NOT NULL DEFAULT 0 COMMENT '修改时间',
+  `status` TINYINT NOT NULL DEFAULT 2 COMMENT '状态1：停用，2：正常',
+  PRIMARY KEY (`id`),
+  UNIQUE uniq_user_id (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT '个人表';
