@@ -1,7 +1,11 @@
 new Vue({
     el: '#app',
     data: {
-        showLeft: true
+        showLeft: true,
+        items: [
+            {name: '个人信息', url: '/u/person.html'},
+            {name: '聘方信息', url: '/u/company.html'}
+        ]
     },
     //引入模板
     components: {
@@ -18,6 +22,10 @@ new Vue({
                     _this.$toast(data.msg);
                 }
             })
+        },
+        //页面跳转
+        jumpHandle: function (url) {
+            location.href = url;
         }
     }
 });

@@ -20,6 +20,7 @@ import java.util.*;
 public class UserRealm extends AuthorizingRealm {
     @Autowired
     private UserService userService;
+
     /**
      * 授权(验证权限时调用)
      */
@@ -35,25 +36,21 @@ public class UserRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
         String account = (String) token.getPrincipal();
         String password = new String((char[]) token.getCredentials());
-
         //查询用户信息
         User user = userService.getByAccount(account);
-
         //账号不存在
-        if(user == null) {
+        if (user == null) {
             throw new UnknownAccountException("账号或密码不正确");
         }
-
         //密码错误
-        if(!password.equals(user.getPassword())) {
+        if (!password.equals(user.getPassword())) {
             throw new IncorrectCredentialsException("账号或密码不正确");
         }
-
         //账号冻结
-        if(user.getStatus() == UserStatus.DISABLE.getValue()){
+        if (user.getStatus() == UserStatus.DISABLE.getValue()) {
             throw new LockedAccountException("账号已被冻结,请联系管理员");
         }
-
+        user.setPassword(null);
         SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(user, password, getName());
         return info;
     }

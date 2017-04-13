@@ -34,8 +34,8 @@ public class RegionUtils {
         String ip = getRemoteIp(request);
         Region region = new Region();
         if (ip.equals(Constants.LOCAL_IP)) {
-            region.setCode(110100);
-            region.setFullName("北京市");
+            region.setCode(Constants.DEFAULT_REGION_CODE);
+            region.setFullName(Constants.DEFAULT_REGION_NAME);
             return region;
         }
         String ipResponse = getIpInfo(ip);
@@ -49,24 +49,24 @@ public class RegionUtils {
         }
         if (response == null || response.getCode() != 0) {
             //FIXME 记录该用户/浏览器上一次访问时所在的城市,若没有则默认北京
-            region.setCode(110100);
-            region.setFullName("北京市");
+            region.setCode(Constants.DEFAULT_REGION_CODE);
+            region.setFullName(Constants.DEFAULT_REGION_NAME);
             return region;
         }
         IpInfo info = response.getData();
         //本网站的业务只在中国开放
         if (info.getCountry().equals("中国")) {
             //FIXME 记录该用户/浏览器上一次访问时所在的城市,若没有则默认北京
-            region.setCode(110100);
-            region.setFullName("北京市");
+            region.setCode(Constants.DEFAULT_REGION_CODE);
+            region.setFullName(Constants.DEFAULT_REGION_NAME);
             return region;
         }
         //todo
         //region = areaService.getByName(info.getCity());
         if (null == region) {
             //FIXME 记录该用户/浏览器上一次访问时所在的城市,若没有则默认北京
-            region.setCode(110100);
-            region.setFullName("北京市");
+            region.setCode(Constants.DEFAULT_REGION_CODE);
+            region.setFullName(Constants.DEFAULT_REGION_NAME);
             return region;
         }
         return region;

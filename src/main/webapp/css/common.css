@@ -13,7 +13,7 @@ a {
 
 /** 控制底部tabbar的高度 **/
 .mint-tab-item-label {
-    line-height: 3;
+    line-height: 1;
 }
 
 /** 头部header的颜色 **/

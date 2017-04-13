@@ -7,16 +7,21 @@ var components = {
     header: {
         props: ['title', 'showLeft'],
         template: '<mt-header fixed :title="title">' +
-        '<mt-button icon="back" slot="left" v-if="showLeft">返回</mt-button>' +
-        '</mt-header>'
+        '<mt-button icon="back" slot="left" v-if="showLeft" @click.native="goBack">返回</mt-button>' +
+        '</mt-header>',
+        methods: {
+            goBack: function () {
+                location.href = history.go(-1);
+            }
+        }
     },
     //底部的tabbar
     footer: {
         props: ['id'],
         template: '<mt-tabbar v-model="selected">' +
-        '<mt-tab-item id="tab1">首页</mt-tab-item>' +
-        '<mt-tab-item id="tab2">消息</mt-tab-item>' +
-        '<mt-tab-item id="tab3">我的</mt-tab-item>' +
+        '<mt-tab-item id="tab1"><img slot="icon" src="../assets/100x100.png">首页</mt-tab-item>' +
+        '<mt-tab-item id="tab2"><img slot="icon" src="../assets/100x100.png">消息</mt-tab-item>' +
+        '<mt-tab-item id="tab3"><img slot="icon" src="../assets/100x100.png">我的</mt-tab-item>' +
         '</mt-tabbar>',
         data: function () {
             return {
@@ -50,6 +55,9 @@ var components = {
                         break;
                 }
                 location.href = url;
+            },
+            goBack: function () {
+                window.location.href = history.go(-1);
             }
         },
         created: function () {

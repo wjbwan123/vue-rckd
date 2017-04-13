@@ -2,14 +2,19 @@ package net.rckd.entity;
 
 /**
  * 职位分类实体类
+ *
  * @author hanyi
  * @date 2017年04月10日
  */
 public class JobPosition {
     private Integer id;
+
     private Integer positionNo;
+
     private String positionName;
+
     private Integer parentNo;
+
     public Integer getId() {
         return id;
     }

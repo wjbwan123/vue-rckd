@@ -16,12 +16,12 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * 默认拦截器
+ * 地区信息拦截器
  *
  * @author hanyi
  * @date 2017年04月10日
  */
-public class DefaultInterceptor implements HandlerInterceptor {
+public class RegionInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object o) throws Exception {
         return true;
