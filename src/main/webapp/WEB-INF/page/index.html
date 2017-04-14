@@ -5,16 +5,28 @@
     #parse("common/header.html")
 </head>
 <body>
-<div id="app">
-    <!-- 头部 -->
+<div id="app" v-cloak>
+    <!-- 头部
     <app-header title="首页" :show-left="showLeft"></app-header>
 
-    <div class="container">
-        首页
+
+   <div v-for="province in tree" @click="visible=true">
+       {{province.fullName}}
+       <div v-show="visible" v-for="city in province.children" style="margin-left: 20px;">
+           {{city.fullName}}
+           <div v-for="town in city.children" style="margin-left: 20px;display: none;">
+               {{town.fullName}}
+           </div>
+       </div>
+   </div>-->
+
+    <div class="page-picker-wrapper">
+        <mt-picker :slots="slots" @change="onValuesChange" :visible-item-count="5"></mt-picker>
     </div>
 
-    <!-- 底部tabbar -->
+    <!-- 底部tabbar
     <app-footer id="tab1"></app-footer>
+    -->
 </div>
 </body>
 #parse("common/footer.html")

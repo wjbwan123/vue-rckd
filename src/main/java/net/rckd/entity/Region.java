@@ -18,6 +18,10 @@ public class Region {
      */
     private Integer parentCode;
     /**
+     * 类型
+     */
+    private Integer type;
+    /**
      * 名字简称
      */
     private String name;
@@ -68,5 +72,13 @@ public class Region {
 
     public void setChildren(List<Region> children) {
         this.children = children;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
     }
 }
