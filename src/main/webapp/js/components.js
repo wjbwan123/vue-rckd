@@ -6,9 +6,9 @@ var components = {
     //头部模块
     header: {
         props: ['title', 'showLeft'],
-        template: '<mt-header fixed :title="title">' +
+        template: '<div style="margin-bottom: 20%;"><mt-header fixed :title="title">' +
         '<mt-button icon="back" slot="left" v-if="showLeft" @click.native="goBack">返回</mt-button>' +
-        '</mt-header>',
+        '</mt-header></div>',
         methods: {
             goBack: function () {
                 location.href = history.go(-1);
@@ -55,13 +55,47 @@ var components = {
                         break;
                 }
                 location.href = url;
-            },
-            goBack: function () {
-                window.location.href = history.go(-1);
             }
         },
         created: function () {
             this.selected = this.id;
+        }
+    },
+    //底部的tabbar1
+    footer1: {
+        props: ['index'],
+        template: '<footer class="page-footer fixed-footer"><ul>' +
+        '<li v-for="item in tabItems" :class="item.className">' +
+        '<a :href="item.url"><img :src="item.imgSrc"/><p>{{item.name}}</p></a>' +
+        '</li></ul></footer>',
+        data: function () {
+            return {
+                tabItems: [
+                    {
+                        url: '/', name: '首页', className: '',
+                        imgSrc: common.getRootPath() + '/images/footer001.png',
+                    },
+                    {
+                        url: '/index.html', name: '分类', className: '',
+                        imgSrc: common.getRootPath() + '/images/footer002.png'
+                    },
+                    {
+                        url: '/index.html', name: '购物车', className: '',
+                        imgSrc: common.getRootPath() + '/images/footer003.png'
+                    },
+                    {
+                        url: '/u/mine.html', name: '个人中心', className: '',
+                        imgSrc: common.getRootPath() + '/images/footer004.png'
+                    }
+                ]
+            }
+        },
+        created: function () {
+            var item = this.tabItems[this.index];
+            var src = item.imgSrc;
+            src = src.replace(/footer00/, 'footer0');
+            item.imgSrc = src;
+            item.className = 'active';
         }
     },
     //登陆模块

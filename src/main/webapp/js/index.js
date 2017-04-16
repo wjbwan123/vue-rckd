@@ -37,7 +37,8 @@ new Vue({
     //引入模板
     components: {
         'app-header': components.header,
-        'app-footer': components.footer
+        'app-footer': components.footer,
+        'app-footer1': components.footer1
     },
     methods: {
         getTreeList: function () {

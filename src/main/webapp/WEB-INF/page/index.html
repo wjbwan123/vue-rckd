@@ -3,10 +3,12 @@
 <head>
     <title>人才快递</title>
     #parse("common/header.html")
+    <link rel="stylesheet" type="text/css" href="${rc.contextPath}/css/base.css"/>
+    <link rel="stylesheet" type="text/css" href="${rc.contextPath}/css/style.css"/>
 </head>
 <body>
 <div id="app" v-cloak>
-    <!-- 头部
+    <!-- 头部 -->
     <app-header title="首页" :show-left="showLeft"></app-header>
 
 
@@ -18,15 +20,13 @@
                {{town.fullName}}
            </div>
        </div>
-   </div>-->
+   </div>
 
-    <div class="page-picker-wrapper">
-        <mt-picker :slots="slots" @change="onValuesChange" :visible-item-count="5"></mt-picker>
-    </div>
 
-    <!-- 底部tabbar
-    <app-footer id="tab1"></app-footer>
-    -->
+
+    <!-- 底部tabbar -->
+    <app-footer1 index="0"></app-footer1>
+
 </div>
 </body>
 #parse("common/footer.html")

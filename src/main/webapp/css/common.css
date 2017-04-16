@@ -16,8 +16,10 @@ a {
     line-height: 1;
 }
 
-/** 头部header的颜色 **/
+/** 头部header **/
 .mint-header {
     background-color: #00b38a;
+    height: 50px;
 }
+
 
